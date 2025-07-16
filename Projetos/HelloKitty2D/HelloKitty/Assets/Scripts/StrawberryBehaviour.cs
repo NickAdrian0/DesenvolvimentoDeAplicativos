@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class StrawberryBehaviour : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D collision)
+    public GameObject go;
+    public GameController gc;
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            gc.StrawberryCount++;
+            go.SetActive(false);
         }
     }
 }
